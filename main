@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=2,walltime=0:10:00,vmem=4gb
+#PBS -N octave-template
+
+set -x
+set -e
+
+#anat=$(jq -r .anat config.json)
+#cp $anat $copy
+#gunzip $copy
+
+time singularity exec docker://brainlife/octave:test octave main.m
+
+echo "all done"
+
